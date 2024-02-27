@@ -1,0 +1,61 @@
+// Grandparent class
+class Calculator {
+    public int add(int num1, int num2) {
+        return num1 + num2;
+    }
+
+    public int subtract(int num1, int num2) {
+        return num1 - num2;
+    }
+}
+
+// Parent class inheriting from Calculator
+class AdvancedCalculator extends Calculator {
+    public int multiply(int num1, int num2) {
+        return num1 * num2;
+    }
+
+    public int divide(int num1, int num2) {
+        if (num2 != 0) {
+            return num1 / num2;
+        } else {
+            System.out.println("Cannot divide by zero.");
+            return -1; // Indicating an error
+        }
+    }
+}
+
+// Child class inheriting from AdvancedCalculator
+class ScientificCalculator extends AdvancedCalculator {
+    public double power(int base, int exponent) {
+        return Math.pow(base, exponent);
+    }
+
+    public double squareRoot(int num) {
+        return Math.sqrt(num);
+    }
+}
+
+// Main class
+public class Main {
+    public static void main(String[] args) {
+        // Creating an instance of the child class
+        ScientificCalculator sciCalc = new ScientificCalculator();
+
+        // Performing arithmetic operations
+        int sum = sciCalc.add(5, 7);
+        int difference = sciCalc.subtract(10, 3);
+        int product = sciCalc.multiply(4, 6);
+        int quotient = sciCalc.divide(20, 5);
+        double resultPower = sciCalc.power(2, 3);
+        double resultSquareRoot = sciCalc.squareRoot(25);
+
+        // Displaying the results
+        System.out.println("Sum: " + sum);
+        System.out.println("Difference: " + difference);
+        System.out.println("Product: " + product);
+        System.out.println("Quotient: " + quotient);
+        System.out.println("Result of Power: " + resultPower);
+        System.out.println("Square Root: " + resultSquareRoot);
+    }
+}
